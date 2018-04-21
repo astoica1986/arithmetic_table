@@ -34,6 +34,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry"
 
-  spec.add_runtime_dependency "gli"
+  spec.add_runtime_dependency "gli", "~> 2.17"
   spec.add_runtime_dependency "terminal-table", "~> 1.8"
 end

@@ -1,25 +1,25 @@
 require 'spec_helper'
-require 'pry'
+
 RSpec.describe ArithmeticTable::TableGenerator do
   describe 'validations' do
     describe '#validate_attributes!' do
       it 'validates sequence_generator dependency injections interface' do
         subject.send(:sequence_generator=, double(:sequence_generator))
-        expect { subject.send(:validate_attributes!) }.to(
+        expect { subject.validate_attributes! }.to(
             raise_error(':sequence_generator must implement #generate')
         )
       end
 
       it 'validates matrix_calculator dependency injections interface' do
         subject.send(:matrix_calculator=, double(:matrix_calculator))
-        expect { subject.send(:validate_attributes!) }.to(
+        expect { subject.validate_attributes! }.to(
             raise_error(':matrix_calculator must implement #calculate')
         )
       end
 
       it 'validates table_printer dependency injections interface' do
         subject.send(:table_printer=, double(:table_printer))
-        expect { subject.send(:validate_attributes!) }.to(
+        expect { subject.validate_attributes! }.to(
             raise_error(':table_printer must implement #print')
         )
       end
