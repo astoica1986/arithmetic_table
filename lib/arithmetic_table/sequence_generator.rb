@@ -10,6 +10,7 @@ module ArithmeticTable
     def initialize(*_args, **options)
       @size = options.delete(:size)
       @options = options
+      validate_attributes!
     end
 
     def call
@@ -38,6 +39,14 @@ module ArithmeticTable
       else
         :generate_numbers
       end
+    end
+
+    def validate_attributes!
+      raise 'Invalid size. Must be a positive integer' unless valid_size?
+    end
+
+    def valid_size?
+      size.is_a?(Integer) && size > 0
     end
   end
 end

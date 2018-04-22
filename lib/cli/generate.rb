@@ -29,7 +29,7 @@ module Generate
         ::ArithmeticTable::TableGenerator.new(
           size: options[:size],
           operator: options[:operator],
-          primes: true
+          primes: options[:primes]
         ).generate
       end
     end
