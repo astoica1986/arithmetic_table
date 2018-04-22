@@ -1,4 +1,5 @@
 module Generate
+  # Defines terminal 'api' command #generate
   module CLI
     desc 'Generates a command line ASCII table. The elements of that table will
       be computed from a number sequence by applying one of the four

@@ -1,3 +1,7 @@
 AllCops:
   Exclude:
     - 'arithmetic_table.gemspec'
+    - 'Rakefile'
+    - 'Gemfile'
+    - 'bin/console'
+    - 'spec/spec_helper.rb'

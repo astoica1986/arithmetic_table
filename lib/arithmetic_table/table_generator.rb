@@ -1,14 +1,18 @@
 module ArithmeticTable
-  # main interface class of the app, uses dependency injection classes to generate the arithmetic table
+  # main interface class of the app, uses dependency injection classes to
+  # generate the arithmetic table
   class TableGenerator
-    attr_reader :size, :operator, :options, :sequence_generator, :matrix_calculator, :table_printer
+    attr_reader :size, :operator, :options, :sequence_generator,
+                :matrix_calculator, :table_printer
 
     def initialize(size: nil, operator: nil, **options)
       @size = size
       @operator = operator
       @options = options
-      @sequence_generator = options.delete(:sequence_generator) || SequenceGenerator
-      @matrix_calculator = options.delete(:matrix_calculator) || ArithmeticMatrix
+      @sequence_generator = options.delete(:sequence_generator) ||
+                            SequenceGenerator
+      @matrix_calculator = options.delete(:matrix_calculator) ||
+                           ArithmeticMatrix
       @table_printer = options.delete(:table_printer) || TablePrinter
       validate_attributes!
     end
