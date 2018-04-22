@@ -1,0 +1,3 @@
+AllCops:
+  Exclude:
+    - 'arithmetic_table.gemspec'
