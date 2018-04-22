@@ -9,12 +9,14 @@ module Generate
 
     command %i[generate draw] do |c|
       c.desc 'Set the size of the number sequence used to generate the
-        arithmetic table. Must be a positive integer'
+        arithmetic table. Must be a positive integer. If not specified it will
+        default to 10'
       c.flag %i[s size], type: Integer, must_match: /^0*[1-9]\d*$/,
                          default_value: 10
 
       c.desc 'Sets the mathematical operation applied on the number sequence in
-        order to generate the table'
+        order to generate the table. Must be one of: + - * /. If not specified
+        it will default to *'
       c.flag %i[o operator], type: String, must_match: %w[+ - * /],
                              default_value: '*'
 
