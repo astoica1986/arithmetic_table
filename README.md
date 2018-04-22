@@ -1,39 +1,29 @@
 # ArithmeticTable
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/arithmetic_table`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem was done as part of a coding challenge.
+The requirements were to implement a multiplication table in the terminal using the first N prime numbers.
 
-TODO: Delete this and the text above, and describe your gem
-
+However I made the app more extensible and added the ability to generate consecutive numbers (besides primes) and allow the use of any of four basic math operators: +, -, *, / . 
 ## Installation
 
-Add this line to your application's Gemfile:
+This is not meant to be uploaded to rubygems(although it can be)
+To install it locally cd to gem directory and then
 
 ```ruby
-gem 'arithmetic_table'
+bundle install
+
+rake install
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install arithmetic_table
 
 ## Usage
 
-TODO: Write usage instructions here
+Example
+```ruby
+ ~ arithmetic-table generate -s 9 --primes -o "/"   
+```
+Please run 
+```ruby
+ ~ arithmetic-table help generate   
+```
+for detailed instructions
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/arithmetic_table. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Code of Conduct
-
-Everyone interacting in the ArithmeticTable project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/arithmetic_table/blob/master/CODE_OF_CONDUCT.md).

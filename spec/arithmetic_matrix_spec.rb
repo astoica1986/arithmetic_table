@@ -22,7 +22,13 @@ RSpec.describe ArithmeticTable::ArithmeticMatrix do
           eq([[1, 2, 3], [2, 4, 6], [3, 6, 9]])
         )
         expect(described_class.call(sequence: [1, 2, 3], operator: '/')).to(
-          eq([[1, 2, 3], [0, 1, 1], [0, 0, 1]])
+          eq(
+            [
+              [1.0, 2.0, 3.0],
+              [0.5, 1.0, 1.5],
+              [0.3333333333333333, 0.6666666666666666, 1.0]
+            ]
+          )
         )
         expect(described_class.call(sequence: [1, 2, 3], operator: '-')).to(
           eq([[0, 1, 2], [-1, 0, 1], [-2, -1, 0]])

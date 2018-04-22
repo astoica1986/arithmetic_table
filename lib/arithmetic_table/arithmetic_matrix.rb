@@ -15,7 +15,7 @@ module ArithmeticTable
 
     def call
       sequence.inject([]) do |memo, val|
-        row = sequence.map { |e| e.public_send(operator, val) }
+        row = sequence.map { |e| e.to_f.public_send(operator, val) }
         memo << row
       end
     end
@@ -27,11 +27,13 @@ module ArithmeticTable
 
     private
 
-    # sequence must contain only (positive) numbers
-    # the positivity condition is needed to avoid dividing by 0
+    # sequence must contain not contain zeros
+    # this condition is needed to avoid dividing by 0
 
     def valid_sequence?
-      sequence.is_a?(Array) && sequence.all? { |e| (e.is_a? Numeric) && (e > 0) }
+      sequence.is_a?(Array) && sequence.all? do |e|
+        (e.is_a? Numeric) && (e != 0)
+      end
     end
 
     def valid_operator?
