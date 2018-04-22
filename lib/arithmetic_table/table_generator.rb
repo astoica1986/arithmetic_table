@@ -19,7 +19,9 @@ module ArithmeticTable
 
     def generate
       sequence = sequence_generator.call(size: size, **options)
-      matrix = matrix_calculator.call(sequence: sequence, **options)
+      matrix = matrix_calculator.call(
+        sequence: sequence, operator: operator, **options
+      )
       table_printer.call(headings: sequence, matrix: matrix, **options)
     end
 

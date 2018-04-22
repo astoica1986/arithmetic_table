@@ -24,7 +24,7 @@ module Generate
       c.switch %i[p primes], negatable: false
 
       c.action do |_global_options, options, _args|
-        ArithmeticTable::TableGenerator.new(
+        ::ArithmeticTable::TableGenerator.new(
           size: options[:size],
           operator: options[:operator],
           primes: true
