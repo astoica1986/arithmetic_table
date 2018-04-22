@@ -1,10 +1,12 @@
 module ArithmeticTable
   class ArithmeticMatrix
+    extend Service
+
     def initialize(options)
 
     end
 
-    def calculate
+    def call
 
     end
   end

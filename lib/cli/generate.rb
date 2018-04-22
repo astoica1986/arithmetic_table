@@ -23,10 +23,10 @@ module Generate
       c.switch %i[p primes], negatable: false
 
       c.action do |_global_options, options, _args|
-        TableGenerator.new(
-          sequence_condition: { primes: options[:primes] },
+        ArithmeticTable::TableGenerator.new(
           size: options[:size],
-          operator: options[:operator]
+          operator: options[:operator],
+          primes: true
         ).generate
       end
     end

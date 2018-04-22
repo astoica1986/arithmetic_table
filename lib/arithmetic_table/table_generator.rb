@@ -1,30 +1,28 @@
 module ArithmeticTable
   # main interface class of the app, uses dependency injection classes to generate the arithmetic table
   class TableGenerator
-    attr_reader :sequence_generator, :matrix_calculator, :table_printer
+    attr_reader :size, :operator, :options, :sequence_generator, :matrix_calculator, :table_printer
 
-    def initialize(sequence_generator: SequenceGenerator, matrix_calculator: ArithmeticMatrix,
-                   table_printer: TablePrinter, options: {})
-      raise ':options param must be provided as Hash' unless options.is_a? Hash
-      @sequence_generator = sequence_generator.new(options)
-      @matrix_calculator = matrix_calculator.new(options)
-      @table_printer = table_printer.new
+    def initialize(size: nil, operator: nil, **options)
+      @size = size
+      @operator = operator
+      @options = options
+      @sequence_generator = options.delete(:sequence_generator) || SequenceGenerator
+      @matrix_calculator = options.delete(:matrix_calculator) || ArithmeticMatrix
+      @table_printer = options.delete(:table_printer) || TablePrinter
+      validate_attributes!
     end
 
     def generate
-      sequence = sequence_generator.generate
-      matrix = matrix_calculator.calculate(sequence)
-      table_printer.print(headings: sequence, matrix: matrix)
+      sequence = sequence_generator.call(size: size, **options)
+      matrix = matrix_calculator.call(sequence: sequence, **options)
+      table_printer.call(headings: sequence, matrix: matrix, **options)
     end
 
     def validate_attributes!
-      raise ':sequence_generator must implement #generate' unless sequence_generator.respond_to?(:generate)
-      raise ':matrix_calculator must implement #calculate' unless matrix_calculator.respond_to?(:calculate)
-      raise ':table_printer must implement #print' unless matrix_calculator.respond_to?(:print)
+      [sequence_generator, matrix_calculator, table_printer].each do |injector|
+        raise "#{injector} must implement #call" unless injector.method_defined?(:call)
+      end
     end
-
-    private
-
-    attr_writer :sequence_generator, :matrix_calculator, :table_printer
   end
 end

@@ -7,15 +7,16 @@ module ArithmeticTable
   # using the headings param and prints it to the terminal
   # Expects matrix and headings to have the same size
   class TablePrinter
+    extend Service
     attr_reader :headings, :matrix
 
-    def initialize(headings: [nil], matrix: [[]])
-      @headings = headings
-      @matrix = matrix
+    def initialize(*_args, **options)
+      @headings = options[:headings] || [nil]
+      @matrix = options[:matrix] || [[]]
       validate_attributes!
     end
 
-    def print
+    def call
       puts terminal_table
     end
 

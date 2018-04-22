@@ -1,10 +1,12 @@
 module ArithmeticTable
   class SequenceGenerator
+    extend Service
+
     def initialize(options)
 
     end
 
-    def generate
+    def call
 
     end
   end
