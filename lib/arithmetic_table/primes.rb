@@ -1,7 +1,7 @@
 module ArithmeticTable
+  # Adds additional functionalities to the Integer class
+  # without monkey-patching (I am not a big fan of patching)
   module Primes
-    # Adds additional functionalities to the Integer class
-    # without monkey-patching (I am not a big fan of patching)
     refine Integer do
       def prime?
         return false if self < 2

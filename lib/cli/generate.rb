@@ -3,9 +3,9 @@ module Generate
   module CLI
     desc 'Generates a command line ASCII table. The elements of that table will
       be computed from a number sequence by applying one of the four
-      basic operations. The user can choose the size of the sequence, a condition
-      for the sequence(i.e primes) and the mathematical operation which will be
-      applied'
+      basic operations. The user can choose the size of the sequence,
+      a condition for the sequence(i.e primes) and the mathematical operation
+      which will be applied'
 
     command %i[generate draw] do |c|
       c.desc 'Set the size of the number sequence used to generate the

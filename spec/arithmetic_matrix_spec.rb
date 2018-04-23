@@ -10,7 +10,7 @@ RSpec.describe ArithmeticTable::ArithmeticMatrix do
       end
 
       it 'validates operator type' do
-        expect { described_class.call(sequence: [1,2], operator: '@') }.to(
+        expect { described_class.call(sequence: [1, 2], operator: '@') }.to(
           raise_error('Invalid operator. Must be one of: + - * /')
         )
       end

@@ -39,7 +39,7 @@ module ArithmeticTable
     private
 
     def valid_matrix?
-      matrix.all? { |arr| (arr.kind_of? Array) && arr.flatten(1) == arr }
+      matrix.all? { |arr| (arr.is_a? Array) && arr.flatten(1) == arr }
     end
   end
 end

@@ -27,7 +27,7 @@ module ArithmeticTable
 
     def validate_attributes!
       [sequence_generator, matrix_calculator, table_printer].each do |injector|
-        raise "#{injector} must implement #call" unless injector.method_defined?(:call)
+        raise("#{injector} must implement #call") unless injector.method_defined?(:call)
       end
     end
   end
